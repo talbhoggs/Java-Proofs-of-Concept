@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer flag="true" age="27">
+	<address zoom="city">Mountain View, CA</address>
+	<name firstName="Yes">Daniel</name>
+	<purchases>
+		<purchase type="A" cost="$30"><description>Book</description></purchase>
+		<purchase type="B" cost="$50"><description>Chair</description></purchase>
+		<purchase type="C" cost="$250"><description>Glasses</description></purchase>
+	</purchases>
+</customer>
