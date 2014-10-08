@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+	<property resource="webmail-std.properties" />
+
+	<appender name="logfile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LogFileFullPath}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>testLog.%d{yyyy-MM-dd}</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{"yyyy-MM-dd HH:mm:ss,SSS"} %-5p [%t] [%X{appinfo}]
+				[%X{guid}] [%X{sessid}] [%c{0}] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-5p [%c{1}] %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.aol.webmail" additivity="true" level="INFO">
+		<appender-ref ref="logfile" />
+	</logger>
+
+	<logger name="org.springframework" additivity="true" level="WARN">
+		<appender-ref ref="logfile" />
+	</logger>
+
+	<logger name="com.aol.webmail.xmlconfigtests" additivity="true" level="INFO">
+		<appender-ref ref="stdout" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+	</root>
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.daniel.models.AppleStore" table="APPLE_STORE">
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="manager" column="MANAGER" />
+		<map name="goods" cascade="all" table="GOODS">
+			<key column="APPLE_STORE_ID" />
+			<map-key column="PRODUCT_ID" type="string" />
+			<one-to-many class="com.daniel.models.Good" />
+		</map>
+	</class>
+</hibernate-mapping>
+
+<!-- Not useful for a map because a map doesn't have an order to its values 
+	<index column="GOOD_INDEX" /> -->
+<!-- this will add a column by the name of PRODUCT_ID. This column values 
+	will be the keys of the map -->

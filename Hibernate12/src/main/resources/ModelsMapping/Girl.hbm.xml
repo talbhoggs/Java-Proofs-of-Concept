@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.daniel.models.Girl" table="GIRLS">
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="name" column="NAME" />
+
+		<set name="toys" table="GIRLS_TOYS" cascade="all">
+			<key column="GIRL_ID"></key>
+			<many-to-many column="TOY_ID" class="com.daniel.models.Toy"></many-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

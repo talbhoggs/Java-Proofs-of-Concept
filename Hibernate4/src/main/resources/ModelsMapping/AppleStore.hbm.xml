@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+	<class name="com.daniel.models.AppleStore" table="APPLE_STORE">
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="manager" column="MANAGER" />
+		<list name="goods" cascade="all" table="GOODS">
+			<key column="APPLE_STORE_ID" />
+			<index column="GOOD_INDEX" />
+			<one-to-many class="com.daniel.models.Good" />
+		</list>
+	</class>
+</hibernate-mapping>
