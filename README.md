@@ -1,4 +1,4 @@
 Java-Proofs-of-Concept
 ======================
 
-Various Java Spring and Java EE demos and proofs of concepts
+Various Java Spring and Java EE demos and proofs of concepts I created.
